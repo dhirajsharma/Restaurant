@@ -26,7 +26,7 @@ Requirements:
             Owner can view/edit restaurant profile details like Name, Contact, Email, Address etc.
             Owner can update settings like Auto Assign, Restaurant Open/Closing days and times etc.
     Owner | Assign Table:
-            Open reservation detail screen from list of reservations.
+            Open reservation detail screen from list of reservations.git add
             On clicking Assign Table, open seating map and select table.
     Owner | Auto Assign Table:
             If Auto Assign is enabled, system should assign the table to a new reservation automatically.
