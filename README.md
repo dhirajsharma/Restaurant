@@ -1,5 +1,5 @@
 # Restaurant System
-Requirements:
+##Requirements:
     Users: Customers and the Owner. Owner needs to be authenticated.
     Customers | Creating a Reservation:
             Customers can reserve a table by providing date, time, party size, contact details.
