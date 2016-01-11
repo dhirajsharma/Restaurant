@@ -1,0 +1,47 @@
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="">Exotic Dinners</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="javascript:;">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="javascript:;">Carte & Menu</a></li>
+                    <li><a href="javascript:;">Direction</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-controller="SearchController as searchCtrl" 
+                    ng-class="{false:'show-section', true:'hide-section'}[loginStatus]">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="ccVal" 
+                                    placeholder="Confirmation code" ng-model="searchCtrl.searchTxt">
+
+                            <span class="input-group-addon btn-search" ng-click="searchCtrl.findRegistration();">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </span>
+                        </div>
+                    </form>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle gear-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-cog gear-size"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:;" id="signin" ng-click="mainCtrl.showLoginModal();">Sign in</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right"  
+                    ng-class="{true:'show-section', false:'hide-section'}[loginStatus]">
+                    <li><a href="javascript:;" ng-click="mainCtrl.registerSignOut();" >Sign Out</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>

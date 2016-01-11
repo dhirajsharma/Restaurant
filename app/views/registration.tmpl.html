@@ -1,0 +1,111 @@
+<div class="form-group party-type">
+    <div>
+        <label for="daysRadio">Number of days</label>
+    </div>
+    <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-default active" ng-click="regCtrl.setDays($event);">
+            <input type="radio" id="q157" name="bookingType" value="single" 
+                   checked="checked" class="party-type-radio"/> One-day
+        </label>
+        <label class="btn btn-default" ng-click="regCtrl.setDays($event);">
+            <input type="radio" id="q156" name="bookingType" 
+                   value="multi" class="party-type-radio"/> Multi
+        </label>
+    </div>
+</div>
+<div class="form-group has-feedback">
+    <div>
+        <label for="occasionVal">Occasion</label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon occasion-img-wrap">
+        <img src="../images/svg/parties.svg" class="img-responsive img-circle">
+      </span>
+        <input type="text" class="form-control" id="occasionVal" name="occasion" 
+                placeholder="Let us know your special occasion" ng-model="regCtrl.reservationObj.reservation_occasion" required>
+        
+    </div>
+    <div class="errors" ng-messages="regForm.occasion.$error" ng-if="regForm.occasion.$dirty">
+          <p ng-message="required">Occasion is required</p>
+    </div>
+</div>
+<div class="form-group single-date">
+    <div>
+        <label for="occasionVal">Date</label>
+    </div>
+    <div class="input-group date">
+        <span class="input-group-addon">
+        <i class="glyphicon glyphicon-th"></i>
+      </span>
+        <input type="text" class="form-control" name="regDate" ng-model="regCtrl.reservationObj.reservation_start_date" required>
+    </div>
+    <div class="errors" ng-messages="regForm.regDate.$error" ng-if="regForm.regDate.$dirty">
+          <p ng-message="required">Date is required</p>
+    </div>
+</div>
+<div class="form-group multiple-date">
+    <div>
+        <label for="occasionVal">Date</label>
+    </div>
+    <div class="input-daterange input-group" id="datepicker">
+        <input type="text" class="input-sm form-control mul-dt" name="startDate" ng-model="regCtrl.reservationObj.reservation_start_date" required>
+        <span class="input-group-addon">to</span>
+        <input type="text" class="input-sm form-control mul-dt" name="endDate" ng-model="regCtrl.reservationObj.reservation_end_date" required>
+    </div>
+    <!-- <div class="errors valErrors" ng-messages="regForm.startDate.$error || regForm.endDate.$error" ng-if="regForm.startDate.$dirty || regForm.endDate.$dirty">
+          <p ng-message="required">Date is required</p>
+    </div> -->
+    <div ng-if="regForm.startDate.$error">
+        <p ng-message="required">Date is required 1st if</p>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-xs-12 col-sm-6">
+        <div>
+            <label for="occasionVal">Start time</label>
+        </div>
+        <div class="input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
+            <input type="text" class="form-control" name="startTime" ng-model="regCtrl.reservationObj.reservation_start_time" required>
+            <span class="input-group-addon">
+          <span class="glyphicon glyphicon-time"></span>
+            </span>
+        </div>
+        <div class="errors" ng-messages="regForm.startTime.$error" ng-if="regForm.startTime.$dirty">
+          <p ng-message="required">Start time is required</p>
+        </div>
+    </div>
+    <div class="form-group  col-xs-12 col-sm-6">
+        <div>
+            <label for="occasionVal">End time</label>
+        </div>
+        <div class="input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
+            <input type="text" class="form-control" name="endTime" ng-model="regCtrl.reservationObj.reservation_end_time" required>
+            <span class="input-group-addon">
+          <span class="glyphicon glyphicon-time"></span>
+            </span>
+        </div>
+        <div class="errors" ng-messages="regForm.endTime.$error" ng-if="regForm.endTime.$dirty">
+          <p ng-message="required">End time is required</p>
+        </div>
+    </div>
+</div>
+<div class="form-group has-feedback">
+    <div>
+        <label for="occasionVal">Party Size</label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">
+        <span class="glyphicon glyphicon-user"></span>
+        </span>
+        <input type="text" class="form-control" id="occasionVal" 
+               placeholder="Party size" name="partySize" ng-model="regCtrl.reservationObj.reservation_party_size" required>
+    </div>
+    <div class="errors" ng-messages="regForm.partySize.$error" ng-if="regForm.partySize.$dirty">
+          <p ng-message="required">Party size is required</p>
+    </div>
+</div>
+<div class="form-group">
+    <label for="fname">Addition Details</label>
+    <textarea class="form-control" rows="4" name="additionalDetails" ng-model="regCtrl.reservationObj.reservation_additional_details"></textarea>
+</div>
+

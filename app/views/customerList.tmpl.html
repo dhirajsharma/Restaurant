@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th>Customer Id</th>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>State</th>
+          <th>Zip</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr ng-repeat="cust in adminCtrl.customerList | filter:adminCtrl.customerSearchTxt">
+          <td>{{cust.customer_id}}</td>
+          <td>{{cust.customer_firstname}} {{cust.customer_lastname}}</td>
+          <td>{{cust.customer_phone}}</td>
+          <td>{{cust.customer_email}} </td>
+          <td>{{cust.customer_streetAddress}} {{cust.customer_suiteAddress}} {{cust.customer_city}}</td>
+          <td>{{cust.customer_state}}</td>
+          <td>{{cust.customer_zip}}</td>
+      </tr>
+  </tbody>
+</table>

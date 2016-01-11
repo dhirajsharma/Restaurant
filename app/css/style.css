@@ -1,0 +1,207 @@
+
+.nav.navbar-default{
+	position: fixed;
+	top: 0;
+	margin-bottom: 50px;
+	width: 100%;
+	z-index: 100;
+}
+
+.carousel-wrap{
+	margin-top: 25px;
+}
+.carousel-inner .carousel-img {
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	height: 800px;
+}
+
+.start-booking {
+	text-align: center;
+	margin-top: 80px;
+}
+
+.start-booking button {
+	height: 40px;
+	width: 200px;
+	font-size: 18px;
+}
+
+.modal-content{
+	background-color: #FAFAFA;
+}
+
+.modal .close-option {
+	border: 1px solid #CCC;
+	border-radius: 16px;
+	padding: 4px 11px;
+	font-size: 16px;
+}
+
+.modal .modal-body .form-wrap{
+	border: 1px solid #ccc;
+	padding: 15px;
+	border-radius: 10px;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+.modal #myLargeModalLabel{
+	text-align: center;
+}
+
+.occasion-img-wrap {
+	padding: 0px;
+}
+.occasion-img-wrap img{
+	max-width: none;
+	height:31px;
+	width:31px;
+}
+
+.party-type{
+	/* text-align: center; */
+}
+
+.user-details input['text']{
+	height: 34px;
+}
+
+#contact-details{
+	border-right: 1px solid #ccc;
+}
+
+.registration-submit{
+	text-align: center;
+	margin-top: 15px;
+}
+
+.registration-submit .btn-submit{
+	font-weight: bold;
+  width: 86px;
+}
+
+/* .form-divider{
+	border-right: 1px solid #ccc;
+	height: 1px;
+} */
+
+.chk-avail {
+	text-align: center;
+	margin-top: 40px;
+}
+
+.chk-avail button {
+	height: 40px;
+	/*width: 200px;*/
+	font-size: 18px;
+}
+
+.multiple-date, .show-result{
+	display: none;
+}
+
+.mul-dt{
+	height: 34px;
+}
+
+.submit-wrap{
+	text-align: center;
+}
+
+.btn-back{
+	float: left;
+	display: none;
+}
+
+.back-arw{
+	width: 0;
+	height: 0;
+	border-right: 15px solid #ccc;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	display: inline-block;
+}
+
+.back-block{
+	border: 1px solid #ccc;
+	bottom: 10px;
+	display: inline-block;
+	height: 30px;
+	padding-top: 3px;
+	position: relative;
+	background-color: #ccc;
+	color:#000;
+	padding-left: 5px;
+	padding-right: 8px;
+	border-radius: 0px 5px 5px 0;
+}
+
+.gear-link{
+	padding-top: 12px !important;
+	padding-bottom: 0 !important;
+}
+
+.gear-size{
+	font-size: 26px;
+}
+
+.title{
+	font-size: 20px;
+	font-weight: bold;
+}
+.content{
+	font-size: 16px;
+}
+
+.containeer #googleMap {
+	width: 90%;
+	height: 640px;
+	background-color: #CCC;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media(min-width: 720px){
+	.containeer #googleMap {
+		height: 930px;
+		width: 95%;
+	}
+}
+
+.map-wrap .navbar{
+	margin-bottom: 0;
+}
+
+
+.info-wrap{
+	border: 1px solid #ccc;
+	padding: 15px;
+	border-radius: 10px;
+}
+
+.info-wrap .col-xs-12{
+	margin-bottom: 20px;
+}
+
+.admin-view{
+	display: none;
+}
+
+.registration-search, .customer-search{
+	margin-top:15px;
+}
+
+th{
+	cursor: pointer;
+}
+
+.show-section{
+	display: block;
+}
+
+.hide-section{
+	display: none;
+}

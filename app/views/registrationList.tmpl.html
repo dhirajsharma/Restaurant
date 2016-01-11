@@ -1,0 +1,25 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th ng-click="reg.sortBy='reservation_id'; reg.sortOrder = !reg.sortOrder;">Registration Id</th>
+            <th ng-click="reg.sortBy='reservation_start_date'; reg.sortOrder = !reg.sortOrder;">Start Date</th>
+            <th ng-click="reg.sortBy='reservation_end_date'; reg.sortOrder = !reg.sortOrder;">End Date</th>
+            <th ng-click="reg.sortBy='customer_firstname'; reg.sortOrder = !reg.sortOrder;">Customer Name</th>
+            <th>Confirmation Code</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="reg in adminCtrl.registrationList | filter:adminCtrl.searchTxt | orderBy:reg.sortBy:reg.sortOrder">
+            <td><a href="javascript:;" ng-click="adminCtrl.viewRegistration(reg.reservation_id);">Edit</a></td>
+            <td>{{reg.reservation_id}}</td>
+            <td>{{reg.reservation_start_date}}</td>
+            <td>{{reg.reservation_end_date}}</td>
+            <td>{{reg.customer_firstname}} {{reg.customer_lastname}}</td>
+            <td>{{reg.confirmation_code}}</td>
+            <td ng-if="reg.reservation_status == 'CANCELLED'"><span style="color:red">{{reg.reservation_status}}</span></td>
+            <td ng-if="reg.reservation_status != 'CANCELLED'"><span>{{reg.reservation_status}}</span></td> 
+        </tr>
+    </tbody>
+</table>
