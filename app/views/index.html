@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html ng-app="egenRestaurant" ng-cloak>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Bootstrap styles -->
+    <link rel="stylesheet" type="text/css" href="../factory/bootstrap/timepicker/jquery-clockpicker.min.css">
+    <link rel="stylesheet" type="text/css" href="../factory/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../factory/bootstrap/css/datepicker/bootstrap-datepicker3.standalone.min.css">
+    <link rel="stylesheet" type="text/css" href="../factory/bootstrap/timepicker/bootstrap-clockpicker.min.css">
+    <!-- Custom styles -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+
+<body ng-controller="MainController as mainCtrl">
+    <header>
+        <div ng-include="'header.tmpl.html'"></div>
+    </header>
+    <div class="container">
+        <div class="row home-view">
+            <div ng-include="'carousel.tmpl.html'" ng-init="mainCtrl.loadCarousel();"></div>
+        </div>
+        <div class="row home-view">
+            <div class="col-xs-12 start-booking">
+                <button type="button" class="btn btn-success" ng-click="mainCtrl.showCloud();">Start Booking</button>
+            </div>
+        </div>
+        <div class="row home-view">
+            <div class="modal fade bs-example-modal-lg booking-details" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="booking-modal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="row">
+                                <div class="col-xs-4"></div>
+                                <div class="col-xs-4">
+                                    <h4 class="modal-title" id="myLargeModalLabel">Booking details</h4>
+                                </div>
+                                <div class="col-xs-4">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-12" ng-controller="RegistrationController as regCtrl">
+                                    <div class="row form-wrap">
+                                        <form>
+                                            <div class="row">
+                                                <div id="contact-details" class="col-xs-6">
+                                                    <div data-ng-include="'user.tmpl.html'" class="user-details"></div>
+                                                </div>
+                                                <div id="register-here" class="col-xs-6">
+                                                    <div data-ng-include="'registration.tmpl.html'"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row registration-submit">
+                                                <button type="button" class="btn btn-success btn-submit" id="submit" ng-click="regCtrl.saveRegistration();">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div ng-controller="AdminController as adminCtrl" ng-init="adminCtrl.isDisplay = false" class="col-xs-10 col-xs-offset-1">
+            <div class="row admin-view" id="adminTabs" ng-show="{{adminCtrl.isDisplay}}">
+                <!--  <div> -->
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#reservationsPane" aria-controls="reservations" role="tab" data-toggle="tab">All reservations</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#profilesPane" aria-controls="profiles" role="tab" data-toggle="tab">All Customers</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--  </div> -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="reservationsPane">
+                        <div class="row registration-search">
+                            <div class="col-xs-3">
+                                <input type="search" class="form-control" placeholder="Search here" ng-model="adminCtrl.searchTxt">
+                            </div>
+                        </div>
+                        <div ng-include="'registrationList.tmpl.html'"></div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="profilesPane">
+                        <div class="row customer-search">
+                            <div class="col-xs-3">
+                                <input type="search" class="form-control" placeholder="Search here" ng-model="adminCtrl.customerSearchTxt">
+                            </div>
+                        </div>
+                        <div ng-include="'customerList.tmpl.html'"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade bs-example-modal-lg edit-reservations" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="edit-res-modal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="row">
+                                <div class="col-xs-4"></div>
+                                <div class="col-xs-4">
+                                    <h4 class="modal-title" id="myLargeModalLabel">Edit Reservations</h4>
+                                </div>
+                                <div class="col-xs-4">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-12" ng-controller="EditRegisController as editRegCtrl">
+                                    <div class="row form-wrap">
+                                        <form>
+                                            <div class="row">
+                                                <div id="contact-details" class="col-xs-6">
+                                                    <div data-ng-include="'userEdit.tmpl.html'" class="user-details"></div>
+                                                </div>
+                                                <div id="register-here" class="col-xs-6">
+                                                    <div data-ng-include="'registrationEdit.tmpl.html'"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row registration-submit">
+                                                <button type="button" class="btn btn-success btn-submit" id="submitEditted" ng-click="editRegCtrl.updateRegistration();">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade sign-in-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-sm" ng-controller="LoginController as loginCtrl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h4 class="modal-title">Sign in</h4>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div ng-include="'login.tmpl.html'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+<!-- Jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- AngularJs -->
+<script src="../factory/angularJs/angular.min.js"></script>
+<script src="../factory/angularJs/angular-messages.js"></script>
+<!-- Bootstrap -->
+<script src="../factory/bootstrap/js/bootstrap.min.js"></script>
+<script src="../factory/bootstrap/js/carousel.js"></script>
+<script src="../factory/bootstrap/js/modal.js"></script>
+<script src="../factory/bootstrap/js/moment.js"></script>
+<script src="../factory/bootstrap/js/bootstrap-datepicker.js"></script>
+<script src="../factory/bootstrap/timepicker/jquery-clockpicker.min.js"></script>
+<script src="../factory/bootstrap/timepicker/bootstrap-clockpicker.min.js"></script>
+
+
+<!-- Custom controllers -->
+<script src="../controllers/app.js"></script>
+<script src="../controllers/registrationController.js"></script>
+<script src="../controllers/adminController.js"></script>
+<script src="../controllers/editRegisController.js"></script>
+<script src="../controllers/loginController.js"></script>
+<script src="../controllers/searchController.js"></script>
+
+</html>
